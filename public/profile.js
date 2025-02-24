@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch('${API_URL}/api/users/profile', {
+        const response = await fetch(`${API_URL}/api/users/profile`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -47,7 +47,7 @@ function displayProfile(data) {
 }
 async function loadUsers() {
     try {
-        const response = await fetch('${API_URL}/api/users/all-users', { 
+        const response = await fetch(`${API_URL}/api/users/all-users`, { 
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         });
