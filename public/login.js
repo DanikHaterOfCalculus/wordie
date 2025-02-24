@@ -1,4 +1,4 @@
-const API_URL = 'https://wordie-3xo0.onrender.com'; // Правильный API URL
+const API_URL = 'https://wordie-3xo0.onrender.com'; 
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('registerUsername').value;

@@ -1,4 +1,6 @@
 const API_URL = 'https://wordie-3xo0.onrender.com'; 
+let page = 1; 
+const limit = 20; 
 async function loadWords(pageNumber) {
     if (pageNumber < 1) return; 
     page = pageNumber;
@@ -148,7 +150,7 @@ document.getElementById('searchButton').addEventListener('click', async () => {
 let quizzes = []; 
 
 async function fetchQuizQuestions() {
-    const response = await fetch('${API_URL}/api/quizzes/random');
+    const response = await fetch(`${API_URL}/api/quizzes/random`);
     quizzes = await response.json(); 
     const quizContainer = document.getElementById('quizContainer');
     quizContainer.innerHTML = ''; 
@@ -269,8 +271,7 @@ document.getElementById('logoutButton').addEventListener('click', () => {
     window.location.href = '/'; 
 });
 
-let page = 1; 
-const limit = 20; 
+
 
 document.addEventListener('DOMContentLoaded', fetchQuizQuestions);
 document.addEventListener('DOMContentLoaded', fetchWords);
