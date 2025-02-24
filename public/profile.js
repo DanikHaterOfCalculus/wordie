@@ -1,3 +1,4 @@
+const API_URL = import.meta.env.API_URL || 'http://localhost:3000';
 const token = localStorage.getItem('token'); 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -8,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch('/api/users/profile', {
+        const response = await fetch('${API_URL}/api/users/profile', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -46,7 +47,7 @@ function displayProfile(data) {
 }
 async function loadUsers() {
     try {
-        const response = await fetch('/api/users/all-users', { 
+        const response = await fetch('${API_URL}/api/users/all-users', { 
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -77,7 +78,7 @@ async function loadWords(pageNumber = 1) {
     wordPage = pageNumber;
 
     try {
-        const response = await fetch(`/api/words?page=${wordPage}&limit=${wordLimit}`, {
+        const response = await fetch(`${API_URL}/api/words?page=${wordPage}&limit=${wordLimit}`, {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -139,7 +140,7 @@ function editWord(id, word, ru, kz) {
 
     if (!newWord || !newRu || !newKz) return;
 
-    fetch(`/api/words/${id}`, {
+    fetch(`${API_URL}/api/words/${id}`, {
         method: 'PUT',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -158,7 +159,7 @@ function editWord(id, word, ru, kz) {
 function deleteWord(id) {
     if (!confirm("Are you sure you want to delete this word?")) return;
 
-    fetch(`/api/words/${id}`, {
+    fetch(`${API_URL}/api/words/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
     }).then(response => {
@@ -176,7 +177,7 @@ function editQuiz(id, question, correctAnswer) {
 
     if (!newQuestion || !newCorrectAnswer) return;
 
-    fetch(`/api/quizzes/${id}`, {
+    fetch(`${API_URL}/api/quizzes/${id}`, {
         method: 'PUT',
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -195,7 +196,7 @@ function editQuiz(id, question, correctAnswer) {
 function deleteQuiz(id) {
     if (!confirm("Are you sure you want to delete this quiz?")) return;
 
-    fetch(`/api/quizzes/${id}`, {
+    fetch(`${API_URL}/api/quizzes/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
     }).then(response => {
@@ -216,7 +217,7 @@ async function loadQuizzes(pageNumber = 1) {
     quizPage = pageNumber;
 
     try {
-        const response = await fetch(`/api/quizzes?page=${quizPage}&limit=${quizLimit}`, {
+        const response = await fetch(`${API_URL}/api/quizzes?page=${quizPage}&limit=10`, {
             method: 'GET',
             headers: { 'Authorization': `Bearer ${token}` }
         });

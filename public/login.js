@@ -1,17 +1,18 @@
+const API_URL = import.meta.env.API_URL || 'http://localhost:3000';
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('registerUsername').value;
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
-
+ 
     if (password !== confirmPassword) {
         alert("Passwords don't match");
         return;
     }
 
     try {
-        const response = await fetch('http://localhost:3000/api/users/register', {
+        const response = await fetch('${API_URL}/api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +42,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     const password = document.getElementById('loginPassword').value;
 
     try {
-        const response = await fetch('http://localhost:3000/api/users/login', {
+        const response = await fetch('${API_URL}/api/users/login`', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
