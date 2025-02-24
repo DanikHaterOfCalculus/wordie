@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.API_URL || 'http://localhost:3000';
+const API_URL = window.API_URL || 'https://wordie-3xo0.onrender.com';
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('registerUsername').value;

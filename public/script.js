@@ -1,9 +1,10 @@
+const API_URL = import.meta.env.API_URL || 'http://localhost:3000';
 async function loadWords(pageNumber) {
     if (pageNumber < 1) return; 
     page = pageNumber;
 
     try {
-        const response = await fetch(`/api/words?page=${page}&limit=${limit}`);
+        const response = await fetch(`${API_URL}/api/words?page=${page}&limit=${limit}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -58,7 +59,7 @@ async function loadWords(pageNumber) {
     if (pageNumber < 1) return;  
     page = pageNumber;  
 
-    const response = await fetch(`/api/words?page=${page}&limit=${limit}`);
+    const response = await fetch(`${API_URL}/api/words?page=${page}&limit=${limit}`);
     const data = await response.json();
 
     const wordList = document.getElementById('wordList');
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('letterSearchButton').addEventListener('click', async () => {
     const letter = document.getElementById('letter').value;
-    const response = await fetch(`/api/words/starts-with/${letter}`);
+    const response = await fetch(`${API_URL}/api/words/starts-with/${letter}`);
     const data = await response.json();
     
     const letterSearchResult = document.getElementById('letterSearchResult');
@@ -105,7 +106,7 @@ document.getElementById('addWordForm').addEventListener('submit', async (e) => {
     const ru = document.getElementById('ru').value;
     const kz = document.getElementById('kz').value;
 
-    const response = await fetch('/api/words', {
+    const response = await fetch('${API_URL}/api/words', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -128,7 +129,7 @@ document.getElementById('addWordForm').addEventListener('submit', async (e) => {
 
 document.getElementById('searchButton').addEventListener('click', async () => {
     const word = document.getElementById('searchWord').value;
-    const response = await fetch(`/api/words/search/${word}`);
+    const response = await fetch(`${API_URL}/api/words/search/${word}`);
     const data = await response.json();
     
     const searchResult = document.getElementById('searchResult');
@@ -147,7 +148,7 @@ document.getElementById('searchButton').addEventListener('click', async () => {
 let quizzes = []; 
 
 async function fetchQuizQuestions() {
-    const response = await fetch('/api/quizzes/random');
+    const response = await fetch('${API_URL}/api/quizzes/random');
     quizzes = await response.json(); 
     const quizContainer = document.getElementById('quizContainer');
     quizContainer.innerHTML = ''; 
@@ -203,7 +204,7 @@ document.getElementById('submitQuizButton').addEventListener('click', async () =
         const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;  
 
         try {
-            const userResponse = await fetch('/api/users/profile', {
+            const userResponse = await fetch('${API_URL}/api/users/profile', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -213,7 +214,7 @@ document.getElementById('submitQuizButton').addEventListener('click', async () =
             const user = await userResponse.json();
             const quizNumber = user.quizResults.length + 1; 
 
-            const response = await fetch('/api/users/saveQuizResult', {
+            const response = await fetch('${API_URL}/api/users/saveQuizResult', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
