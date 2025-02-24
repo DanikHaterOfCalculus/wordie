@@ -206,7 +206,7 @@ document.getElementById('submitQuizButton').addEventListener('click', async () =
         const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`;  
 
         try {
-            const userResponse = await fetch('${API_URL}/api/users/profile', {
+            const userResponse = await fetch(`${API_URL}/api/users/profile`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -216,7 +216,7 @@ document.getElementById('submitQuizButton').addEventListener('click', async () =
             const user = await userResponse.json();
             const quizNumber = user.quizResults.length + 1; 
 
-            const response = await fetch('${API_URL}/api/users/saveQuizResult', {
+            const response = await fetch(`${API_URL}/api/users/saveQuizResult`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
