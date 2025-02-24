@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Online Dictionary</h1>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <h2>Welcome to the Online Dictionary</h2>
+            <button id="loginButton" onclick="window.location.href='login.html'">Login</button>
+            <button id="registerButton" onclick="window.location.href='login.html'">Register</button>
+            <button id="profileButton" onclick="window.location.href='profile.html'" style="display: none;">Profile</button>
+            <button id="logoutButton" style="display: none;">Logout</button>
+        </section>
+
+        <section class="add-word-section" style="display: none;">
+            <h2>Add New Word</h2>
+            <form id="addWordForm">
+                <input type="text" id="word" placeholder="Enter the word" required>
+                <input type="text" id="synonyms" placeholder="Synonyms (separated by commas)" required>
+                <input type="text" id="ru" placeholder="Translation to Russian" required>
+                <input type="text" id="kz" placeholder="Translation to Kazakh" required>
+                <button type="submit">Add Word</button>
+            </form>
+        </section>
+
+        <section class="search-word-section">
+            <h2>Search Word in Any Language</h2>
+            <input type="text" id="searchWord" placeholder="Enter a word or translation">
+            <button id="searchButton">Search</button>
+            <ul id="searchResult"></ul>
+        </section>
+
+        <section class="search-by-letter-section">
+            <h2>Search Words by Letter</h2>
+            <input type="text" id="letter" placeholder="Enter a letter to search">
+            <button id="letterSearchButton">Search Words</button>
+            <ul id="letterSearchResult"></ul>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Mini Quiz</h2>
+            <div id="quizContainer"></div>
+            <button id="submitQuizButton">Submit</button>
+            <p id="quizResult"></p>
+        </section>
+
+        <button id="showAllWordsButton">Show All Words</button>
+
+        <section class="word-list-section" id="wordListSection" style="display: none;">
+            <h2>All Words in the Dictionary</h2>
+            <ul id="wordList"></ul>
+        </section>
+
+        <div>
+            <button id="prevPageButton" onclick="loadWords(page - 1)">Previous</button>
+            <span id="currentPage">Page: 1</span>
+            <button id="nextPageButton" onclick="loadWords(page + 1)">Next</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Online Dictionary</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

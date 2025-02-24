@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <h2>Your Information</h2>
+            <p id="username">Username: </p>
+            <p id="email">Email: </p>
+            <h2>Your Quiz Results</h2>
+            <ul id="quizResults"></ul>
+        </section>
+        <section class="profile-update-section">
+            <h2>Update Profile</h2>
+        
+            <form id="updateUsernameForm">
+                <label for="newUsername">New Username:</label>
+                <input type="text" id="newUsername" required>
+                <button type="submit">Update Username</button>
+            </form>
+        
+            <form id="updatePasswordForm">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" required>
+                
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" required>
+                
+                <button type="submit">Update Password</button>
+            </form>
+        </section>
+        
+        <section id="adminPanel" style="display: none;">
+            <h2>Admin Panel</h2>
+        
+            <h3>All Users</h3>
+            <div class="list-container">
+                <ul id="userList"></ul>
+            </div>
+        
+
+<section class="word-list-section" id="wordListSection">
+    <h2>All Words in the Dictionary</h2>
+    <ul id="wordList"></ul>
+</section>
+
+<div class="pagination">
+    <button id="prevPageButton">Previous</button>
+    <span id="currentPage">Page: 1</span>
+    <button id="nextPageButton">Next</button>
+</div>
+
+<h3>All Quizzes</h3>
+<div class="list-container">
+    <ul id="quizList"></ul>
+</div>
+<div class="pagination">
+    <button id="prevQuizPage">Previous</button>
+    <span id="quizPage">Page: 1</span>
+    <button id="nextQuizPage">Next</button>
+</div>
+
+        
+            <h3>Add Word</h3>
+        
+<form id="addWordForm">
+    <input type="text" id="word" placeholder="Word" required>
+    <input type="text" id="synonyms" placeholder="Synonyms (comma-separated)" required>
+    <input type="text" id="ru" placeholder="Russian Translation" required>
+    <input type="text" id="kz" placeholder="Kazakh Translation" required>
+    <button type="submit">Add Word</button>
+</form>
+
+        </section>
+        
+        <canvas id="quizResultsChart" width="300" height="50"></canvas>  
+
+        <button id="logoutButton">Logout</button>
+        <button id="returnHomeButton">Return to Home</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Online Dictionary</p>
+    </footer>
+
+    <script src="profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js">    </script>
+
+</body>
+</html>
