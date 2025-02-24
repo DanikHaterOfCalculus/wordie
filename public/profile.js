@@ -1,4 +1,4 @@
-const API_URL = window.API_URL || 'https://wordie-3xo0.onrender.com';
+const API_URL = 'https://wordie-3xo0.onrender.com'; 
 const token = localStorage.getItem('token'); 
 document.addEventListener('DOMContentLoaded', async () => {
 
