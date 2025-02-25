@@ -22,7 +22,7 @@ The Online Dictionary also provides a web interface that allows users to interac
 - Admin panel for managing words, quizzes, and users
 - Interactive quiz section
 
-To access the web interface, open `http://localhost:5000` in your browser after starting the server.
+To access the web interface, open `http://localhost:3000` in your browser after starting the server.
 
 ## Setup Instructions
 
