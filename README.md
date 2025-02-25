@@ -3,6 +3,7 @@
 ## Overview
 
 The Online Dictionary API allows users to register, log in, search for words, add new words, take quizzes, and manage their profiles. The API is built using Node.js, Express, and MongoDB.
+Students: Rakhiya Kurbanaliyeva, Danial Turzhanov, Tamerlan Ussenov. Group SE-2331.
 
 ## Features
 
