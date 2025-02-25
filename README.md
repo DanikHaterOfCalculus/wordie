@@ -39,7 +39,7 @@ Ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/online-dictionary.git
+   git clone git clone https://github.com/DanikHaterOfCalculus/wordie.git
    cd online-dictionary
    ```
 
