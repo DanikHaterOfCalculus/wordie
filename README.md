@@ -182,8 +182,3 @@ Stores quiz questions with multiple-choice options.
 
 - CRUD operations for words, quizzes, and users.
 - Role-based access control.
-
-## License
-
-This project is licensed under the MIT License.
-
